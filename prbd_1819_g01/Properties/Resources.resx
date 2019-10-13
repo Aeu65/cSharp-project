@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BasketView_Action" xml:space="preserve">
+    <value>#Action</value>
+  </data>
+  <data name="BasketView_Author" xml:space="preserve">
+    <value>#Author</value>
+  </data>
+  <data name="BasketView_BasketIsFor" xml:space="preserve">
+    <value>This Basket is for:</value>
+  </data>
+  <data name="BasketView_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="BasketView_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="BasketView_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="BasketView_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="BookDetailView_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="BookDetailView_Author" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="BookDetailView_Book_Copies" xml:space="preserve">
+    <value>Book Copies</value>
+  </data>
+  <data name="BookDetailView_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BookDetailView_Categories" xml:space="preserve">
+    <value>Categories:</value>
+  </data>
+  <data name="BookDetailView_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="BookDetailView_ColAquisitionDate" xml:space="preserve">
+    <value>Aquisition Date</value>
+  </data>
+  <data name="BookDetailView_ColID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="BookDetailView_ColRentedBy" xml:space="preserve">
+    <value>Rented by</value>
+  </data>
+  <data name="BookDetailView_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="BookDetailView_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="BookDetailView_Editor" xml:space="preserve">
+    <value>Editor:</value>
+  </data>
+  <data name="BookDetailView_ISBN" xml:space="preserve">
+    <value>ISBN:</value>
+  </data>
+  <data name="BookDetailView_Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="BookDetailView_Picture" xml:space="preserve">
+    <value>Picture:</value>
+  </data>
+  <data name="BookDetailView_Qty" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="BookDetailView_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="BookDetailView_Title" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="BooksView_AddToBasket" xml:space="preserve">
+    <value>Add to Basket</value>
+  </data>
+  <data name="BooksView_CategoryFilter" xml:space="preserve">
+    <value>Category Filter:</value>
+  </data>
+  <data name="BooksView_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="BooksView_NewBook" xml:space="preserve">
+    <value>New Book</value>
+  </data>
+  <data name="BooksView_TextFilter" xml:space="preserve">
+    <value>Text Filter:</value>
+  </data>
+  <data name="CategoriesView_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="CategoriesView_Books" xml:space="preserve">
+    <value>#Books</value>
+  </data>
+  <data name="CategoriesView_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CategoriesView_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CategoriesView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CategoriesView_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Error_DoesNotExist" xml:space="preserve">
+    <value>does not exist</value>
+  </data>
+  <data name="Error_LengthGreaterEqual3" xml:space="preserve">
+    <value>length must be &gt;= 3</value>
+  </data>
+  <data name="Error_MustMatchConfirmPassword" xml:space="preserve">
+    <value>must match confirm password</value>
+  </data>
+  <data name="Error_MustMatchPassword" xml:space="preserve">
+    <value>must match password</value>
+  </data>
+  <data name="Error_NotAvailable" xml:space="preserve">
+    <value>not available</value>
+  </data>
+  <data name="Error_NumberOnly" xml:space="preserve">
+    <value>only numbers are accepted</value>
+  </data>
+  <data name="Error_Required" xml:space="preserve">
+    <value>required</value>
+  </data>
+  <data name="Error_ToLong" xml:space="preserve">
+    <value>to long !</value>
+  </data>
+  <data name="Error_WrongPassword" xml:space="preserve">
+    <value>wrong password</value>
+  </data>
+  <data name="LoginView_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LoginView_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginView_Message_1" xml:space="preserve">
+    <value>If your don't have a login and a password, click</value>
+  </data>
+  <data name="LoginView_Message_2" xml:space="preserve">
+    <value>here</value>
+  </data>
+  <data name="LoginView_Message_3" xml:space="preserve">
+    <value>to sign-up.</value>
+  </data>
+  <data name="LoginView_Password" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="LoginView_Pseudo" xml:space="preserve">
+    <value>Pseudo:</value>
+  </data>
+  <data name="LoginView_Title" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="MainView_Basket" xml:space="preserve">
+    <value>Basket</value>
+  </data>
+  <data name="MainView_Books" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="MainView_Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="MainView_File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="MainView_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MainView_Rentals" xml:space="preserve">
+    <value>Rentals</value>
+  </data>
+  <data name="MainView_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="RentalView_RentalActions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="RentalView_RentalBook" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="RentalView_RentalDate" xml:space="preserve">
+    <value>Rental Date</value>
+  </data>
+  <data name="RentalView_RentalItems" xml:space="preserve">
+    <value>#Items</value>
+  </data>
+  <data name="RentalView_RentalOpen" xml:space="preserve">
+    <value>#Open</value>
+  </data>
+  <data name="RentalView_RentalUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="RentalView_ReturnDate" xml:space="preserve">
+    <value>Return Date</value>
+  </data>
+</root>

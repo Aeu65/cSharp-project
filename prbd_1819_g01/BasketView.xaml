@@ -1,0 +1,66 @@
+﻿<f:UserControlBase x:Class="prbd_1819_g01.BasketView"
+                   x:Name="root"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework"
+             xmlns:p="clr-namespace:prbd_1819_g01.Properties"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:prbd_1819_g01"
+             mc:Ignorable="d" 
+             Background="#001747"
+             d:DesignHeight="576" d:DesignWidth="1024">
+    <Grid Margin="10">
+        <Grid.Resources>
+            <BooleanToVisibilityConverter x:Key="visible" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding HeightIfAdmin}"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0,0,0,4" Visibility="{Binding SelectUserDisplay, Converter={StaticResource visible}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="{x:Static p:Resources.BasketView_BasketIsFor}" Foreground="#FFFFFF" Grid.Column="0"/>
+            <ComboBox x:Name="View_comboUsers" ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding UserSelected, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Black" DisplayMemberPath="UserName" Grid.Column="1" Margin="8,4,0,0"/>
+        </Grid>
+        <ListView x:Name="View_listBooks" ItemsSource="{Binding Basket}" Foreground="#FFFFFF" Background="#001747" Grid.Row="1" Margin="0,4,0,4">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Style.Triggers>
+                        <Trigger Property="Control.IsMouseOver" Value="True">
+                            <Setter Property="Control.Background" Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="Control.IsKeyboardFocused" Value="True">
+                            <Setter Property="Control.Background" Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="Control.IsKeyboardFocused" Value="False">
+                            <Setter Property="Control.Background" Value="Transparent" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="View_ColTitle" DisplayMemberBinding="{Binding BookCopy.Book.Title}" Header="{x:Static p:Resources.BasketView_Title}" Width="300"/>
+                    <GridViewColumn x:Name="View_ColAuthor" DisplayMemberBinding="{Binding BookCopy.Book.Author}"  Header="{x:Static p:Resources.BasketView_Author}" Width="150"/>
+                    <GridViewColumn x:Name="View_ColActions"  Width="150" Header="{x:Static p:Resources.BasketView_Action}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{x:Static p:Resources.BasketView_Delete}" Command="{Binding Delete,ElementName=root}" Background="#FFE04A" CommandParameter="{Binding}" Width="50" Height="25" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,4,0,0">
+            <Button x:Name="View_btnConfirm" Content="{x:Static p:Resources.BasketView_Confirm}" Command="{Binding Confirm}" BorderBrush="Black" Background="#FFE04A" Margin="0,0,4,0" Width="50" Height="25" Grid.Column="0"/>
+            <Button x:Name="View_btnClear" Content="{x:Static p:Resources.BasketView_Clear}" Command="{Binding Clear}" BorderBrush="Black" Background="#FFE04A" Margin="4,0,0,0" Width="50" Height="25" Grid.Column="1"/>
+        </StackPanel>
+    </Grid>
+</f:UserControlBase>

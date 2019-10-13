@@ -1,0 +1,93 @@
+﻿<f:UserControlBase x:Class="prbd_1819_g01.BooksView"
+                   x:Name="root"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework"
+             xmlns:p="clr-namespace:prbd_1819_g01.Properties"
+             xmlns:local="clr-namespace:prbd_1819_g01"
+             mc:Ignorable="d" 
+             Background="#001747"
+             d:DesignHeight="576" d:DesignWidth="1024">
+    <UserControl.Resources>
+        <BitmapImage x:Key="UnknownBook" UriSource="/images/000.jpg"/>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.Resources>
+            <BooleanToVisibilityConverter x:Key="visible" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="{x:Static p:Resources.BooksView_TextFilter}" Foreground="#FFFFFF" Margin="0,0,4,4" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+            <TextBox x:Name="View_textFilter" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" Margin="4" Grid.Row="0" Grid.Column="1"/>
+            <Button x:Name="View_btnClear" Content="{x:Static p:Resources.BooksView_Clear}" Background="#FFE04A" BorderBrush="Black" Command="{Binding ClearFilter}" Grid.RowSpan="2" Margin="4,0,0,0" Grid.Column="2" Width="50" Height="25"/>
+            <Label Content="{x:Static p:Resources.BooksView_CategoryFilter}" Foreground="#FFFFFF" Margin="0,0,4,4" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+            <ComboBox x:Name="View_textCategoryFilter" ItemsSource="{Binding Categories, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CategorySelected, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding CategoryIndex}" Grid.Row="1" Grid.Column="1" Margin="4" DisplayMemberPath="Name"/>
+        </Grid>
+        <ListView x:Name="View_listBooks" ItemsSource="{Binding Books}" SelectedItem="{Binding BookSelected, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Transparent" Margin="0,4,0,4" Grid.Row="1" Background="#001747" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding DisplayBookDetails}"
+                                   CommandParameter="{Binding ElementName=View_listBooks, Path=SelectedItem}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="4" BorderBrush="Black" Background="#FFFFFF" BorderThickness="2" Padding="8">
+                        <StackPanel Width="100">
+                            <TextBlock FontSize="12" TextAlignment="Center" Text="{Binding Isbn}" Foreground="Black" TextWrapping="Wrap" />
+                            <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Center" Text="{Binding Title}" Foreground="Black" TextWrapping="Wrap" />
+                            <TextBlock FontSize="12" TextAlignment="Center" Text="{Binding Author}" Foreground="Black" TextWrapping="Wrap" />
+                            <TextBlock FontSize="12" TextAlignment="Center" Text="{Binding PrintEditor}" Foreground="Black" TextWrapping="Wrap" />
+                            <Image Height="140" Source="{Binding AbsolutePicturePath,Converter={f:UriToCachedImageConverter}, TargetNullValue={StaticResource UnknownBook}}" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" />
+                            <ListView ItemsSource="{Binding Categories}" SelectedItem="{Binding CategoryClicked, UpdateSourceTrigger=PropertyChanged, ElementName=root}" BorderBrush="Transparent" SelectionMode="Single" Width="100" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Name}" FontSize="10" FontWeight="Bold" Foreground="#001747" TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <TextBlock FontSize="12" TextAlignment="Center" Text="{Binding PrintAvailavilities}" Foreground="Black" TextWrapping="Wrap" />
+                            <Button x:Name="View_btnAddToBasket" FontSize="12" Width="80" Command="{Binding Add, ElementName=root}" CommandParameter="{Binding}" BorderBrush="Black" Background="#FFE04A" Content="{x:Static p:Resources.BooksView_AddToBasket}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="2" Margin="0,4,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="View_btnNew" Content="{x:Static p:Resources.BooksView_NewBook}" Background="#FFE04A" BorderBrush="Black" Grid.Column="0" Command="{Binding NewBook}" Height="25" Width="70" Visibility="{Binding ButtonNewBookDisplay, Converter={StaticResource visible}}" />
+            <Label x:Name="View_textSomeonesBasket" Content="{Binding NameOwnerBasket}" Foreground="#FFFFFF" Grid.Column="1" Width="300" FontSize="18" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</f:UserControlBase>
